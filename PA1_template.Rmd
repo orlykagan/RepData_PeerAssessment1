@@ -5,10 +5,26 @@ output:
     keep_md: true
 ---
 
+When writing code chunks in the R markdown document, always use echo = TRUE so that someone else will be able to read the code.
+
+```
+library(knitr)
+opts_chunk$set(echo = TRUE, results = 'hold')
+```
 
 ## Loading and preprocessing the data
 
+data <- read.csv("activity.csv", colClasses = c("numeric", "character", 
+    "numeric"))
+head(data)
 
+```
+library(lattice)
+```
+
+```
+data$date <- as.Date(data$date, "%Y-%m-%d")
+```
 
 ## What is mean total number of steps taken per day?
 
